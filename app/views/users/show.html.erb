@@ -1,0 +1,15 @@
+
+<%= link_to "New post", new_post_path, class: 'btn btn-primary btn-lg', style: 'color: white;' %><br /><br/>
+
+<%= @posts.each do |post| %>
+<table>
+  <tr>
+    <td>
+      post.title
+    </td>
+    <td>
+      post.author
+    </td>
+  </tr>
+</table>
+<% end %>

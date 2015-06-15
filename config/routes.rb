@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  root 'posts#index'
+  resources :users, only: [:create, :new, :show]
+
+  get "/login" => "sessions#index", as: "login"
+  post "/login" => "sessions#login"
+  root 'users#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

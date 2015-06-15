@@ -7,9 +7,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.new post_params
+    @user = User.find(@post.user_id)
     if @post.save
-      redirect_to root_url
+      redirect_to @user
     else
       redirect :back
     end
@@ -48,6 +50,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:author, :title, :content)
+    params.require(:post).permit(:user_id, :title, :content)
   end
 end
