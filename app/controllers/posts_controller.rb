@@ -1,3 +1,4 @@
+require 'pry'
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -22,6 +23,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = Comment.where(post_id: @post.id)
+    @comment = @post.comments.build
   end
 
   def update

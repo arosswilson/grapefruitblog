@@ -1,0 +1,10 @@
+<h2>Create New Comment</h2><br/>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %><br/>
+  <%= f.label :content %>
+  <%= f.text_field :content %><br/>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit %>
+<%end%>
+
